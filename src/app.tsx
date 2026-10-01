@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from '@/pages/home'
+import Buzzer from '@/pages/buzzer'
 
 export default function App() {
 	return (
@@ -9,9 +10,7 @@ export default function App() {
 				<div className="flex flex-1 flex-col gap-4 overflow-hidden p-4">
 					<Routes>
 						<Route path="/" element={<Home />} />
-						{/* <Route path="/edit/:id" element={<MealsEdit />} />
-						<Route path="/view/:id" element={<MealsView />} />
-						<Route path="/data" element={<Data />} /> */}
+						<Route path="/buzzer" element={<Buzzer />} />
 					</Routes>
 				</div>
 			</main>
