@@ -1,4 +1,4 @@
-import { ROLES, type Role } from '@/models/undercover'
+import { ROLES, type Player, type Role, type Winner } from '@/models/undercover'
 
 const WORDS: [string, string][] = [
 	['Pizza', 'Burger'],
@@ -45,4 +45,45 @@ export function compute(players: number): {
 		undercover,
 		mister,
 	}
+}
+
+export function pickStarter(players: Player[]): string | null {
+	const alive = players.filter((player) => !player.die)
+	const candidates = alive.filter((player) => player.role !== ROLES.MISTER)
+	const pool = candidates.length > 0 ? candidates : alive
+
+	if (pool.length === 0) return null
+
+	return pool[Math.floor(Math.random() * pool.length)].name
+}
+
+export function getSecret(
+	role: Role | null,
+	words: { civil: string; undercover: string } | null,
+): string {
+	if (role === ROLES.MISTER) return 'Tu es Mister White'
+	if (role === ROLES.UNDERCOVER) return words?.undercover ?? ''
+	return words?.civil ?? ''
+}
+
+export function getWinner(players: Player[]): Winner | null {
+	const alive = players.filter((player) => !player.die)
+
+	const civils = alive.filter((p) => p.role === ROLES.CIVIL).length
+	const undercovers = alive.filter((p) => p.role === ROLES.UNDERCOVER).length
+	const misters = alive.filter((p) => p.role === ROLES.MISTER).length
+
+	if (undercovers === 0 && misters === 0) return 'CIVIL'
+	if (undercovers > 0 && civils <= undercovers) return 'UNDERCOVER'
+	if (undercovers === 0 && civils <= misters) return 'MISTER'
+
+	return null
+}
+
+export function normalize(value: string): string {
+	return value
+		.trim()
+		.toLowerCase()
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
 }
