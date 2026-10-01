@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { buzzerStore } from '@/store/buzzer.store'
 
-import Exit from '@/components/exit'
+import Exit from '@/components/button'
 
 export default function BuzzerResult() {
 	const navigate = useNavigate()

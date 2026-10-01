@@ -1,16 +1,11 @@
 import { undercoverStore } from '@/store/undercover.store'
 
 import UndercoverStart from '@/components/undercover/undercover-start'
-import { useEffect } from 'react'
 
 export default function Undercover() {
-	const { start, setStart } = undercoverStore()
+	const { status } = undercoverStore()
 
-	useEffect(() => {
-		setStart(false)
-	}, [])
-
-	if (!start) {
+	if (!status) {
 		return <UndercoverStart />
 	}
 
