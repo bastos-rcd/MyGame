@@ -2,16 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { buzzerStore } from '@/store/buzzer.store'
 
-const Button = (props: { label: string; click: () => void }) => {
-	return (
-		<button
-			className="rounded-xl border border-(--border) bg-white p-3 text-xl font-bold uppercase"
-			onClick={() => props.click()}
-		>
-			{props.label}
-		</button>
-	)
-}
+import Exit from '@/components/exit'
 
 export default function BuzzerResult() {
 	const navigate = useNavigate()
@@ -25,8 +16,14 @@ export default function BuzzerResult() {
 				backgroundColor: winner === 'RED' ? 'var(--red)' : 'var(--blue)',
 			}}
 		>
-			<Button label="Rejouer" click={() => setWinner(null)} />
-			<Button label="Quitter" click={() => navigate('/')} />
+			<button
+				className="rounded-xl border border-(--border) bg-white p-3 font-bold uppercase"
+				onClick={() => setWinner(null)}
+			>
+				Rejouer
+			</button>
+
+			<Exit action={() => navigate('/')} />
 		</div>
 	)
 }
