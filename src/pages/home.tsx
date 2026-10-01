@@ -6,6 +6,11 @@ const GAMES = [
 		cover: 'buzzer.webp',
 		link: '/buzzer',
 	},
+	{
+		name: 'Undercover',
+		cover: 'undercover.webp',
+		link: '/undercover',
+	},
 ]
 
 export default function Home() {
