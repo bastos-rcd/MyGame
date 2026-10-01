@@ -3,11 +3,11 @@ import { buzzerStore } from '@/store/buzzer.store'
 const Color = (props: { color: 'RED' | 'BLUE'; click: () => void }) => {
 	return (
 		<div
-			className="rounded-2xl border border-(--border) p-2"
+			className="touch-none rounded-2xl border border-(--border) p-2"
 			style={{
 				backgroundColor: props.color === 'RED' ? 'var(--red)' : 'var(--blue)',
 			}}
-			onClick={() => props.click()}
+			onPointerDown={() => props.click()}
 		></div>
 	)
 }
