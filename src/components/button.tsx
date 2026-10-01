@@ -2,12 +2,13 @@ interface Props {
 	label: string
 	style: 'default' | 'light' | 'dark'
 	action: () => void
+	disabled?: boolean
 }
 
 export default function Button(props: Props) {
 	return (
 		<button
-			className="rounded-2xl border p-3 font-bold uppercase"
+			className="rounded-2xl border p-3 font-bold uppercase disabled:opacity-50"
 			style={{
 				color:
 					props.style === 'default'
@@ -34,6 +35,7 @@ export default function Button(props: Props) {
 								? 'var(--text)'
 								: '',
 			}}
+			disabled={props.disabled}
 			onClick={() => props.action()}
 		>
 			{props.label}
