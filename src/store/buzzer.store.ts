@@ -7,5 +7,6 @@ interface State {
 
 export const buzzerStore = create<State>((set) => ({
 	winner: null,
-	setWinner: (winner) => set({ winner }),
+	setWinner: (winner) =>
+		set((state) => (winner && state.winner ? state : { winner })),
 }))

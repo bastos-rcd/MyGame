@@ -26,13 +26,7 @@ export default function BuzzerResult() {
 			}}
 		>
 			<Button label="Rejouer" click={() => setWinner(null)} />
-			<Button
-				label="Quitter"
-				click={() => {
-					setWinner(null)
-					navigate('/')
-				}}
-			/>
+			<Button label="Quitter" click={() => navigate('/')} />
 		</div>
 	)
 }

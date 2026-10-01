@@ -11,7 +11,7 @@ const GAMES = [
 export default function Home() {
 	return (
 		<div className="no-scrollbar grid grid-cols-2 gap-4 overflow-y-auto">
-			{GAMES.sort((a, b) => a.name.localeCompare(b.name)).map((game, index) => (
+			{GAMES.map((game, index) => (
 				<HomeCard
 					key={index}
 					name={game.name}
