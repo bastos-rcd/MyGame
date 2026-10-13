@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from '@/pages/home'
 
 import Buzzer from '@/pages/buzzer'
+import Darts from '@/pages/darts'
 import Undercover from '@/pages/undercover'
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
 						<Route path="/" element={<Home />} />
 
 						<Route path="/buzzer" element={<Buzzer />} />
+						<Route path="/darts" element={<Darts />} />
 						<Route path="/undercover" element={<Undercover />} />
 					</Routes>
 				</div>
