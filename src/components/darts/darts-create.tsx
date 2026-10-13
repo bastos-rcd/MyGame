@@ -43,7 +43,12 @@ export default function DartsCreate() {
 				onChange={(e) => setName(e.target.value)}
 			/>
 
-			<Button label="Ajouter" style="default" type="submit" />
+			<Button
+				label="Ajouter"
+				style="default"
+				type="submit"
+				disabled={name.trim().length === 0}
+			/>
 		</form>
 	)
 }

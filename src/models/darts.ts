@@ -2,7 +2,7 @@ export interface Dart {
 	id: string
 	label: string
 	score: number
-	player: string
+	player: Player
 }
 
 export interface Player {

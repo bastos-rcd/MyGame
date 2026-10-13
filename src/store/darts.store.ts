@@ -23,7 +23,8 @@ interface State {
 export const dartsStore = create<State>((set) => ({
 	status: false,
 	start: () => set(() => ({ status: true })),
-	stop: () => set(() => ({ status: false })),
+	stop: () =>
+		set(() => ({ status: false, players: [], darts: [], classment: [] })),
 
 	players: [],
 	addPlayer: (name: string) =>
