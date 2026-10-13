@@ -7,6 +7,11 @@ const GAMES = [
 		link: '/buzzer',
 	},
 	{
+		name: 'Fléchettes',
+		cover: 'darts.webp',
+		link: '/darts',
+	},
+	{
 		name: 'Undercover',
 		cover: 'undercover.webp',
 		link: '/undercover',
